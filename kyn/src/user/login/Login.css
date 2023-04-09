@@ -1,0 +1,86 @@
+
+.login-container {
+    text-align: center;
+}
+
+
+.login-content {
+    background: rgba(120, 120, 120, 0);
+    box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
+    border-radius: 30px;
+    width: 500px;
+    display: inline-block;
+    margin-top: 30px;
+    vertical-align: middle;
+    position: relative;    
+    padding: 35px;
+}
+
+.social-btn {
+    margin-bottom: 15px;
+    font-weight: 400;
+    font-size: 16px;
+    color: white;
+}
+
+.social-btn img {
+    height: 32px;
+    float: left;
+    margin-top: 10px;
+}
+
+.social-btn.google {
+    margin-top: 7px;
+    color: white;
+}
+
+.social-btn.facebook img {
+    height: 24px;
+    margin-left: 3px;
+}
+
+.social-btn.github img {
+    height: 24px;
+    margin-left: 3px;
+}
+
+.signup-link {
+    color: white;
+    font-size: 14px;
+}
+
+.login-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: white;
+    font-weight: inherit;
+}
+.form-control{
+    background-color: transparent;
+    color: white;
+    border-radius: 2cm;
+}
+.form-control hover{
+    background-color: black;
+}
+.btn {
+    background-color: transparent;
+    border-color: white;
+    border-radius: 2px;
+
+}
+.btn:hover:hover { 
+    background-color: black;
+    border-color: black;
+    -ms-zoom-animation: 2px;
+    transform: scale(1.1);
+  }
+  .btn {
+    border-radius: 85cm;
+  }
+.or-text {
+border-radius: 2cm;
+
+}
