@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-CriminalDatabaseApplication<Criminal_Database>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.sih_CriminalDatabaseSage.Criminal_Database.CriminalDatabaseApplication",
+            "projectName": "Criminal_Database",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
