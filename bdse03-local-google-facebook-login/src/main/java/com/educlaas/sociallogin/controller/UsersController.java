@@ -17,6 +17,11 @@ public class UsersController {
 	@Autowired
 	private UsersRepository usersRepo;
 
+	@GetMapping("/home")
+	public String homePage() {
+		
+		return "Home Page";
+	}
 	@GetMapping("/user/me") 
 	public Users getUser(@CurrentUser UsersPrincipal usersPrincipal) {
 	   return usersRepo.findById((usersPrincipal.getUsersId())) 
