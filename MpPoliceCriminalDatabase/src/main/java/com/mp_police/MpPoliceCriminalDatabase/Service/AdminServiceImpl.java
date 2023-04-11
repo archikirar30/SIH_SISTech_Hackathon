@@ -9,10 +9,8 @@ import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 
-import com.mp_police.MpPoliceCriminalDatabase.dao.BidRepository;
 import com.mp_police.MpPoliceCriminalDatabase.dao.CarRepository;
 import com.mp_police.MpPoliceCriminalDatabase.dao.UserRepository;
-import com.mp_police.MpPoliceCriminalDatabase.dto.Bid;
 import com.mp_police.MpPoliceCriminalDatabase.dto.Car;
 import com.mp_police.MpPoliceCriminalDatabase.dto.User;
 
@@ -23,29 +21,26 @@ public class AdminServiceImpl implements AdminService{
 	UserRepository userrepo;
 	
 	@Autowired 
-	BidRepository bidrepo;
-	
-	@Autowired 
 	CarRepository carrepo;
 	
 	@Autowired
 	public JavaMailSender mailSender;
 	
-    Bid bid;
-	List <Bid> UserList = new ArrayList<Bid>();
-	
-	@Override
-	public Bid addBid(Bid bid) {
-		// TODO Auto-generated method stub
-		return bidrepo.save(bid);
-		
-	}
-	
-	@Override
-	public List<Bid> showAllBidding() {
-		List<Bid> allData = bidrepo.findAll();
-		return allData;
-	}
+//    Bid bid;
+//	List <Bid> UserList = new ArrayList<Bid>();
+//	
+//	@Override
+//	public Bid addBid(Bid bid) {
+//		// TODO Auto-generated method stub
+//		return bidrepo.save(bid);
+//		
+//	}
+//	
+//	@Override
+//	public List<Bid> showAllBidding() {
+//		List<Bid> allData = bidrepo.findAll();
+//		return allData;
+//	}
 	
 	@Override
 	public List<User> showAllUser() {

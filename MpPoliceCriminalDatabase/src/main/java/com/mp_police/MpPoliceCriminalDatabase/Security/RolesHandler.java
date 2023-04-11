@@ -21,19 +21,29 @@ public class RolesHandler implements AuthenticationSuccessHandler{
 			Authentication authentication) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		//Role=== ROLE_USER== Admin page
-		//Role === ROLE_ADMIN == UserPage
+		//Role === ROLE_POLICE_OFFICER == OFFICER Page
+		//Role=== ROLE_SUPER_ADMIN== SUPER Admin page
+		//Role === ROLE_POLICE_STATION_MASTER == POLICE STATION MASTER Page
 		
 		Collection<? extends GrantedAuthority> auth=authentication.getAuthorities();
 		String myurl=null;
 		for(GrantedAuthority my:auth) {
 			System.out.println("roles is "+my);
-			if(my.getAuthority().equals("ADMIN")) {
+			if(my.getAuthority().equals("SUPER_ADMIN")) {
 				System.out.println("Admin role");
 				myurl="/admin";
 				break;
+			}else if(my.getAuthority().equals("POLICE_STATION_MASTER")) {
+				System.out.println("Admin role");
+				myurl="/police_station_master";
+				break;
+			}else if(my.getAuthority().equals("POLICE_OFFICER")) {
+				System.out.println("User role");
+				myurl="/police_officer";
+				break;
 			}else if(my.getAuthority().equals("USER")) {
 				System.out.println("User role");
-				myurl="/search";
+				myurl="/user";
 				break;
 			}
 		}

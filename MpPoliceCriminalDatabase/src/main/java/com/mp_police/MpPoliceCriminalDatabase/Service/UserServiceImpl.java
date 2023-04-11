@@ -8,10 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.mp_police.MpPoliceCriminalDatabase.dao.BidRepository;
+
 import com.mp_police.MpPoliceCriminalDatabase.dao.CarRepository;
 import com.mp_police.MpPoliceCriminalDatabase.dao.UserRepository;
-import com.mp_police.MpPoliceCriminalDatabase.dto.Bid;
 import com.mp_police.MpPoliceCriminalDatabase.dto.Car;
 import com.mp_police.MpPoliceCriminalDatabase.dto.User;
 
@@ -23,9 +22,6 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired 
 	CarRepository carrepo;
-	
-	@Autowired 
-	BidRepository bidrepo;
 	
     User user;
 	List <User> UserList = new ArrayList<User>();
@@ -74,15 +70,15 @@ public class UserServiceImpl implements UserService {
 		return usersdetails ;
 	}
 	
-	@Override
-	public Bid showBid(Long id ) {
-		// TODO Auto-generated method stub
-		Optional<Bid> bid = bidrepo.findById(id);
-		Bid biddetails = bid.get();
-		
-		return biddetails ;
-	}
-	
+//	@Override
+//	public Bid showBid(Long id ) {
+//		// TODO Auto-generated method stub
+//		Optional<Bid> bid = bidrepo.findById(id);
+//		Bid biddetails = bid.get();
+//		
+//		return biddetails ;
+//	}
+//	
 	@Override
 	public User showProfile(String name) {
 		// TODO Auto-generated method stub

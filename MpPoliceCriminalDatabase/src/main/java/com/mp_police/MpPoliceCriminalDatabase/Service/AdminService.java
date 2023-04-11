@@ -2,15 +2,12 @@ package com.mp_police.MpPoliceCriminalDatabase.Service;
 
 import java.util.List;
 
-import com.mp_police.MpPoliceCriminalDatabase.dto.Bid;
 import com.mp_police.MpPoliceCriminalDatabase.dto.Car;
 import com.mp_police.MpPoliceCriminalDatabase.dto.User;
 
 public interface AdminService {
 	
-	public Bid addBid(Bid bid);// for adding the value of appointment data in database
-	
-	public List<Bid> showAllBidding();//for displaying all bids/appointment of cars
+
 	
 	public List<User> showAllUser();//for displaying all user of abc portal
 	

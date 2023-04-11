@@ -30,7 +30,6 @@ import com.mp_police.MpPoliceCriminalDatabase.Service.CarService;
 import com.mp_police.MpPoliceCriminalDatabase.Service.UserService;
 import com.mp_police.MpPoliceCriminalDatabase.dao.CarRepository;
 import com.mp_police.MpPoliceCriminalDatabase.dao.UserRepository;
-import com.mp_police.MpPoliceCriminalDatabase.dto.Bid;
 import com.mp_police.MpPoliceCriminalDatabase.dto.Car;
 import com.mp_police.MpPoliceCriminalDatabase.dto.User;
 
@@ -64,84 +63,84 @@ public class CarController {
 
 	}
 	
-	/* For adding user data into the database */
-	@PostMapping(value = "/mycar")
-	public String addUserData(@ModelAttribute("addcar") Car car ,@RequestParam("img") MultipartFile multipartFile, RedirectAttributes ra, Principal principal) throws IOException {
-		if (car.getCarname().equals("")) {
-			System.out.println("Enter value in input fields");
-			return "AddCar";
-		} else {
-			final String currentUser = principal.getName();// for adding the details of logged in user 
-	        User user = service.showProfile(currentUser);
-	        
-	        car.setUserName(user.getUserName());
-	        car.setMobile(user.getMobile());
-	        
-			car.setStatus("active");
-			Car cardetails = service.addCar(car);
-			
-			String fileName = StringUtils.cleanPath(cardetails.getCid() +user.getName()+user.getUserId()+ multipartFile.getOriginalFilename());
-			
-			car.setImage(fileName);
-			service.addCar(car);
-			
-			Path uploadPath = Paths.get(uploadDirectory);
-			if (!Files.exists(uploadPath)) {
-	            Files.createDirectories(uploadPath);
-	        }
-	        try (InputStream inputStream = multipartFile.getInputStream()) {
-	            Path filePath = uploadPath.resolve(fileName);
-	            System.out.println(filePath.toFile().getAbsolutePath());
-	            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
-	        } catch (IOException e) {
-	            throw new IOException("Could not save uploaded file: " + fileName);
-	        }
-	        car.setPhotoImagePath("/uploadedImage/" + fileName);
-	        
-	        service.addCar(car);
-	        ra.addFlashAttribute("success_post", "Post has been saved successfully");
-	        return "redirect:/search";
-		}
-	}
-
-	/* for displaying the Appointment page */
-	@GetMapping(value = "bidAppointment/{searchid}")
-	public ModelAndView displayAppointmentPage(@PathVariable("searchid") Long id, @ModelAttribute("bid") Bid bid,
-			Principal principal) {
-
-		final String currentUser = principal.getName();
-		service.showProfile(currentUser);
-
-		Car cardata = service.showCar(id);// for finding the cid in request handle link in appointment page
-
-		return new ModelAndView("Appointmentform", "cardata", cardata);
-
-	}
-
-	/* For adding appointment data into the database */
-	@PostMapping(value = "/mybid/{searchid}")
-	public String addAppointmentData(@PathVariable("searchid") Long id, @ModelAttribute("bid") Bid bid,
-			Principal principal) {
-
-		final String currentUser = principal.getName();// for adding the details of logged in user
-		User user = service.showProfile(currentUser);
-
-		Car cardata = service.showCar(id); // adding the value of car in appointment table in database
-
-		bid.setCarname(cardata.getCarname());
-		bid.setCid(id);
-		bid.setRegistration(cardata.getRegistration());
-		bid.setModel(cardata.getModel());
-		bid.setMailid(user.getMailid());
-		bid.setUserId(user.getUserId());
-		bid.setUserName(currentUser);
-		bid.setStatus("setStatus");
-		adminservice.addBid(bid);
-		System.out.println(bid);
-		return "redirect:/search";
-	}
-	
-	
+//	/* For adding user data into the database */
+//	@PostMapping(value = "/mycar")
+//	public String addUserData(@ModelAttribute("addcar") Car car ,@RequestParam("img") MultipartFile multipartFile, RedirectAttributes ra, Principal principal) throws IOException {
+//		if (car.getCarname().equals("")) {
+//			System.out.println("Enter value in input fields");
+//			return "AddCar";
+//		} else {
+//			final String currentUser = principal.getName();// for adding the details of logged in user 
+//	        User user = service.showProfile(currentUser);
+//	        
+//	        car.setUserName(user.getUserName());
+//	        car.setMobile(user.getMobile());
+//	        
+//			car.setStatus("active");
+//			Car cardetails = service.addCar(car);
+//			
+//			String fileName = StringUtils.cleanPath(cardetails.getCid() +user.getName()+user.getUserId()+ multipartFile.getOriginalFilename());
+//			
+//			car.setImage(fileName);
+//			service.addCar(car);
+//			
+//			Path uploadPath = Paths.get(uploadDirectory);
+//			if (!Files.exists(uploadPath)) {
+//	            Files.createDirectories(uploadPath);
+//	        }
+//	        try (InputStream inputStream = multipartFile.getInputStream()) {
+//	            Path filePath = uploadPath.resolve(fileName);
+//	            System.out.println(filePath.toFile().getAbsolutePath());
+//	            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+//	        } catch (IOException e) {
+//	            throw new IOException("Could not save uploaded file: " + fileName);
+//	        }
+//	        car.setPhotoImagePath("/uploadedImage/" + fileName);
+//	        
+//	        service.addCar(car);
+//	        ra.addFlashAttribute("success_post", "Post has been saved successfully");
+//	        return "redirect:/search";
+//		}
+//	}
+//
+//	/* for displaying the Appointment page */
+//	@GetMapping(value = "bidAppointment/{searchid}")
+//	public ModelAndView displayAppointmentPage(@PathVariable("searchid") Long id, @ModelAttribute("bid") Bid bid,
+//			Principal principal) {
+//
+//		final String currentUser = principal.getName();
+//		service.showProfile(currentUser);
+//
+//		Car cardata = service.showCar(id);// for finding the cid in request handle link in appointment page
+//
+//		return new ModelAndView("Appointmentform", "cardata", cardata);
+//
+//	}
+//
+//	/* For adding appointment data into the database */
+//	@PostMapping(value = "/mybid/{searchid}")
+//	public String addAppointmentData(@PathVariable("searchid") Long id, @ModelAttribute("bid") Bid bid,
+//			Principal principal) {
+//
+//		final String currentUser = principal.getName();// for adding the details of logged in user
+//		User user = service.showProfile(currentUser);
+//
+//		Car cardata = service.showCar(id); // adding the value of car in appointment table in database
+//
+//		bid.setCarname(cardata.getCarname());
+//		bid.setCid(id);
+//		bid.setRegistration(cardata.getRegistration());
+//		bid.setModel(cardata.getModel());
+//		bid.setMailid(user.getMailid());
+//		bid.setUserId(user.getUserId());
+//		bid.setUserName(currentUser);
+//		bid.setStatus("setStatus");
+//		adminservice.addBid(bid);
+//		System.out.println(bid);
+//		return "redirect:/search";
+//	}
+//	
+//	
 	/* For searching the data by different keyword */
 	@RequestMapping("/search")
 	public String viewSearch(Model model , @Param("keyword") String keyword) {
