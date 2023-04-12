@@ -39,19 +39,19 @@ public class SuperAdminController {
 	}
 	 
 	/* Post mapping for adding criminal */
-	    @PostMapping(value = "/postDataCriminal")
-		public String addUserData(@ModelAttribute("register") Criminal criminal ) {
-	    	if (criminal.getName().equals("") ||us.getUserName().equals("")|| us.getPassword().equals("")|| us.getMailid().equals("")||us.getMobile().equals("")||us.getCountry().equals("")||us.getState().equals("")||us.getGender().equals("")) {
-	    		System.out.println("Enter value in input fields");
-	    		return "registration";
-	    	}else {
-	    	criminal.setRole("USER");
-	    	superAdminService.addCriminal(criminal);
-	    	
-	    	System.out.println("User data is added to the database");
-			System.out.println("New user register with name: "+us.getName());
-			System.out.println("Details of "+ us);
-			return "redirect:/login";
-	    	}
-		}
+//	    @PostMapping(value = "/postDataCriminal")
+//		public String addUserData(@ModelAttribute("register") Criminal criminal ) {
+//	    	if (criminal.getName().equals("") ||us.getUserName().equals("")|| us.getPassword().equals("")|| us.getMailid().equals("")||us.getMobile().equals("")||us.getCountry().equals("")||us.getState().equals("")||us.getGender().equals("")) {
+//	    		System.out.println("Enter value in input fields");
+//	    		return "registration";
+//	    	}else {
+//	    	criminal.setRole("USER");
+//	    	superAdminService.addCriminal(criminal);
+//	    	
+//	    	System.out.println("User data is added to the database");
+//			System.out.println("New user register with name: "+us.getName());
+//			System.out.println("Details of "+ us);
+//			return "redirect:/login";
+//	    	}
+//		}
 }

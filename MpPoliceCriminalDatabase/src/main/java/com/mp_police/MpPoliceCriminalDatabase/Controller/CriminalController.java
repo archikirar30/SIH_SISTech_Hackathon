@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,5 +41,14 @@ public class CriminalController {
 			System.out.println("Details of "+ criminal);
 			return "redirect:/addCriminal";
 	  }
+	 
+		/* Show all Criminal Database */
+		@GetMapping(value="/viewcriminalDetails") 
+	    public ModelAndView viewUsers(){
+	    	
+	    	List <Criminal> criminalsdata = criminalService.showAllCriminal();
+	    	System.out.println(criminalsdata);
+	    	return new ModelAndView("Criminalsdata","criminalsdataset",criminalsdata);
+	    }
 }
 
