@@ -25,12 +25,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.util.StringUtils;
 
-import com.mp_police.MpPoliceCriminalDatabase.Service.AdminService;
-import com.mp_police.MpPoliceCriminalDatabase.Service.CarService;
 import com.mp_police.MpPoliceCriminalDatabase.Service.UserService;
-import com.mp_police.MpPoliceCriminalDatabase.dao.CarRepository;
 import com.mp_police.MpPoliceCriminalDatabase.dao.UserRepository;
-import com.mp_police.MpPoliceCriminalDatabase.dto.Car;
 import com.mp_police.MpPoliceCriminalDatabase.dto.User;
 
 @Controller
@@ -39,29 +35,29 @@ public class CarController {
 	@Autowired
 	UserService service;
 	
-	@Autowired
-	CarService carservice;
-
-	@Autowired
-	AdminService adminservice;
-
-	@Autowired
-	UserRepository userrepo;
-	
-	@Autowired
-	CarRepository carrepo;
-	
-	public static String uploadDirectory = System.getProperty("user.dir")+"/src/main/resources/static/uploadedImage";
-
-	Car car;
-	List<Car> data = new ArrayList<Car>();
-
-	/* for displaying cars registration page */
-	@GetMapping(value = "/addcar")
-	public String displayRegistrationPage(@ModelAttribute("addcar") Car car) {
-		return "AddCar";
-
-	}
+//	@Autowired
+//	CarService carservice;
+//
+//	@Autowired
+//	AdminService adminservice;
+//
+//	@Autowired
+//	UserRepository userrepo;
+//	
+//	@Autowired
+//	CarRepository carrepo;
+//	
+//	public static String uploadDirectory = System.getProperty("user.dir")+"/src/main/resources/static/uploadedImage";
+//
+//	Car car;
+//	List<Car> data = new ArrayList<Car>();
+//
+//	/* for displaying cars registration page */
+//	@GetMapping(value = "/addcar")
+//	public String displayRegistrationPage(@ModelAttribute("addcar") Car car) {
+//		return "AddCar";
+//
+//	}
 	
 //	/* For adding user data into the database */
 //	@PostMapping(value = "/mycar")
@@ -141,16 +137,16 @@ public class CarController {
 //	}
 //	
 //	
-	/* For searching the data by different keyword */
-	@RequestMapping("/search")
-	public String viewSearch(Model model , @Param("keyword") String keyword) {
-		List<Car> listCars = carservice.ListAll(keyword);
-		System.out.println(listCars);
-		model.addAttribute("cardata", listCars);
-		model.addAttribute("keyword", keyword);
-		
-		return "Search";
-		
-	}
+//	/* For searching the data by different keyword */
+//	@RequestMapping("/search")
+//	public String viewSearch(Model model , @Param("keyword") String keyword) {
+//		List<Car> listCars = carservice.ListAll(keyword);
+//		System.out.println(listCars);
+//		model.addAttribute("cardata", listCars);
+//		model.addAttribute("keyword", keyword);
+//		
+//		return "Search";
+//		
+//	}
 
 }

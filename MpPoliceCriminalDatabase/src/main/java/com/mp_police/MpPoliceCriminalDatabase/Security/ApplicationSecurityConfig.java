@@ -35,6 +35,7 @@ public class ApplicationSecurityConfig  extends WebSecurityConfigurerAdapter{
 		.antMatchers("/assets/**","/uploadedImage/**","/uploadedImage/**").permitAll()
 		.antMatchers("/images/**").permitAll()
 		.antMatchers("/forms/**").permitAll()
+		.antMatchers("/templates/**").permitAll()
 		.antMatchers("updateCar/{searchid}","/saveUpdateData","updateUser/{searchid}","/saveUpdateUserData","/profile").hasAnyAuthority("ADMIN","USER")
 		.antMatchers("delete/{searchid}","deactivate/{searchid}","assign/{searchid}","reject/{searchid}","approve/{searchid}","/viewallbid","/viewuser","/admin").hasAuthority("ADMIN")
 		.antMatchers("/addcar","/mycar" ,"bidAppointment/{searchid}","/mybid/{searchid}").hasAuthority("USER")

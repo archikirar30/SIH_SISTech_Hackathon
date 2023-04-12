@@ -1,5 +1,8 @@
 package com.mp_police.MpPoliceCriminalDatabase.dto;
 
+import java.sql.Date;
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,9 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-import javax.validation.constraints.Email;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "criminals", uniqueConstraints = {@UniqueConstraint(columnNames = "criminalId")})
 public class Criminal {
@@ -21,225 +22,248 @@ public class Criminal {
 	@Column(nullable = false)
 	private String criminalName;
 	
-	@Column(nullable = false)
-	private String criminalDob;
+	@Column(nullable = true)
+	private String aliasName;
 	
 	@Column(nullable = false)
-	private String age;
+	private Date dateOfBirth;
 	
 	@Column(nullable = false)
-	private String address;
+	private long aadharCard;
 	
 	@Column(nullable = false)
-	private String city;
+	private String identificationMark;
 	
 	@Column(nullable = false)
-	private String state;
+	private float longitude;
 	
 	@Column(nullable = false)
-	private String country;
+	private float latitude;
 	
 	@Column(nullable = false)
-	private String zipcode;
+	private String typeOfCrime;
 	
 	@Column(nullable = false)
-	private String actofCharge;
+	private int ageOfCriminal;
 	
 	@Column(nullable = false)
-	private String previouslyCharged;
+	private String timeOfCrime;
 	
-	@Column(nullable = false)
-	private Boolean previousCrime;
-	
-	@Column(nullable = false)
-	private String evidence;
-	
+
 	@Column(nullable = false)
 	private String crimeDate;
 	
-	@Column(nullable = false)
-	private String crimePlace;
-	
-	@Column(nullable = false)
-	private String crimeCategory;
-	
-	@Column(nullable = false)
-	private String description;
+	@Column(nullable = true)
+	private Boolean educated;
 	
 	@Column(nullable = true)
-	private String criminalImageUrl;
+	private Boolean mentallyIll;
+	
+	@Column(nullable = true)
+	private String path;
 	
 	@Column(nullable = false)
 	private String gender;
 	
-	private String imagePath;
+	@Column(nullable = false)
+	private String evidenceImageUrl;
+	
+	@Column(nullable = true)
+	private String criminalImageUrl;
+	
 
-	public String getImagePath() {
-		return imagePath;
-	}
+	@Column(nullable = false)
+	private String chargesImposed;
 
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
 
 	public long getCriminalId() {
 		return criminalId;
 	}
 
+
 	public void setCriminalId(long criminalId) {
 		this.criminalId = criminalId;
 	}
+
 
 	public String getCriminalName() {
 		return criminalName;
 	}
 
+
 	public void setCriminalName(String criminalName) {
 		this.criminalName = criminalName;
 	}
 
-	public String getCriminalDob() {
-		return criminalDob;
+
+	public String getAliasName() {
+		return aliasName;
 	}
 
-	public void setCriminalDob(String criminalDob) {
-		this.criminalDob = criminalDob;
+
+	public void setAliasName(String aliasName) {
+		this.aliasName = aliasName;
 	}
 
-	public String getAge() {
-		return age;
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
 	}
 
-	public void setAge(String age) {
-		this.age = age;
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 
-	public String getAddress() {
-		return address;
+
+	public long getAadharCard() {
+		return aadharCard;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+
+	public void setAadharCard(long aadharCard) {
+		this.aadharCard = aadharCard;
 	}
 
-	public String getCity() {
-		return city;
+
+	public String getIdentificationMark() {
+		return identificationMark;
 	}
 
-	public void setCity(String city) {
-		this.city = city;
+
+	public void setIdentificationMark(String identificationMark) {
+		this.identificationMark = identificationMark;
 	}
 
-	public String getState() {
-		return state;
+
+	public float getLongitude() {
+		return longitude;
 	}
 
-	public void setState(String state) {
-		this.state = state;
+
+	public void setLongitude(float longitude) {
+		this.longitude = longitude;
 	}
 
-	public String getCountry() {
-		return country;
+
+	public float getLatitude() {
+		return latitude;
 	}
 
-	public void setCountry(String country) {
-		this.country = country;
+
+	public void setLatitude(float latitude) {
+		this.latitude = latitude;
 	}
 
-	public String getZipcode() {
-		return zipcode;
+
+	public String getTypeOfCrime() {
+		return typeOfCrime;
 	}
 
-	public void setZipcode(String zipcode) {
-		this.zipcode = zipcode;
+
+	public void setTypeOfCrime(String typeOfCrime) {
+		this.typeOfCrime = typeOfCrime;
 	}
 
-	public String getActofCharge() {
-		return actofCharge;
+
+	public int getAgeOfCriminal() {
+		return ageOfCriminal;
 	}
 
-	public void setActofCharge(String actofCharge) {
-		this.actofCharge = actofCharge;
+
+	public void setAgeOfCriminal(int ageOfCriminal) {
+		this.ageOfCriminal = ageOfCriminal;
 	}
 
-	public String getPreviouslyCharged() {
-		return previouslyCharged;
+
+	public String getTimeOfCrime() {
+		return timeOfCrime;
 	}
 
-	public void setPreviouslyCharged(String previouslyCharged) {
-		this.previouslyCharged = previouslyCharged;
+
+	public void setTimeOfCrime(String timeOfCrime) {
+		this.timeOfCrime = timeOfCrime;
 	}
 
-	public Boolean getPreviousCrime() {
-		return previousCrime;
-	}
-
-	public void setPreviousCrime(Boolean previousCrime) {
-		this.previousCrime = previousCrime;
-	}
-
-	public String getEvidence() {
-		return evidence;
-	}
-
-	public void setEvidence(String evidence) {
-		this.evidence = evidence;
-	}
 
 	public String getCrimeDate() {
 		return crimeDate;
 	}
 
+
 	public void setCrimeDate(String crimeDate) {
 		this.crimeDate = crimeDate;
 	}
 
-	public String getCrimePlace() {
-		return crimePlace;
+
+	public Boolean getEducated() {
+		return educated;
 	}
 
-	public void setCrimePlace(String crimePlace) {
-		this.crimePlace = crimePlace;
+
+	public void setEducated(Boolean educated) {
+		this.educated = educated;
 	}
 
-	public String getCrimeCategory() {
-		return crimeCategory;
+
+	public Boolean getMentallyIll() {
+		return mentallyIll;
 	}
 
-	public void setCrimeCategory(String crimeCategory) {
-		this.crimeCategory = crimeCategory;
+
+	public void setMentallyIll(Boolean mentallyIll) {
+		this.mentallyIll = mentallyIll;
 	}
 
-	public String getDescription() {
-		return description;
+
+	public String getGender() {
+		return gender;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
+
+
+	public String getEvidenceImageUrl() {
+		return evidenceImageUrl;
+	}
+
+
+	public void setEvidenceImageUrl(String evidenceImageUrl) {
+		this.evidenceImageUrl = evidenceImageUrl;
+	}
+
 
 	public String getCriminalImageUrl() {
 		return criminalImageUrl;
 	}
 
+
 	public void setCriminalImageUrl(String criminalImageUrl) {
 		this.criminalImageUrl = criminalImageUrl;
 	}
 
-	public Criminal() {
-		super();
-		// TODO Auto-generated constructor stub
+
+	public String getChargesImposed() {
+		return chargesImposed;
 	}
-	
-	
+
+
+	public void setChargesImposed(String chargesImposed) {
+		this.chargesImposed = chargesImposed;
+	}
+
+
+	public String getPath() {
+		return path;
+	}
+
+
+	public void setPath(String path) {
+		this.path = path;
+	}
 	
 
 }

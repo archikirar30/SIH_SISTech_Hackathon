@@ -29,17 +29,9 @@ public class RolesHandler implements AuthenticationSuccessHandler{
 		String myurl=null;
 		for(GrantedAuthority my:auth) {
 			System.out.println("roles is "+my);
-			if(my.getAuthority().equals("SUPER_ADMIN")) {
+			if(my.getAuthority().equals("ADMIN")) {
 				System.out.println("Admin role");
 				myurl="/admin";
-				break;
-			}else if(my.getAuthority().equals("POLICE_STATION_MASTER")) {
-				System.out.println("Admin role");
-				myurl="/police_station_master";
-				break;
-			}else if(my.getAuthority().equals("POLICE_OFFICER")) {
-				System.out.println("User role");
-				myurl="/police_officer";
 				break;
 			}else if(my.getAuthority().equals("USER")) {
 				System.out.println("User role");

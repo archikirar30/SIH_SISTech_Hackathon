@@ -18,7 +18,7 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = "phoneNumber")})
+@Table(name = "users")
 public class User {
 	
 	@Id
@@ -28,9 +28,21 @@ public class User {
 	@Column(nullable = false)
 	private String userName;
 	
+	@Column(nullable = false)
+	private String firstName;
+	
+	@Column(nullable = false)
+	private String lastName;
+	
+	@Column(nullable = false)
+	private String rank;
+	
 	@Email
 	@Column(nullable = false)
 	private String email;
+	
+	@JsonIgnore
+	private String password;
 	
 	@Column(nullable = false)
 	private String phoneNumber;
@@ -38,13 +50,46 @@ public class User {
 	@Column(nullable = false)
 	private String role;
 	
-	@JsonIgnore
-	private String password;
-	
-	private String imageUrl;
-	
 	@Column(nullable = false)
 	private Boolean emailVerified = false;
+	
+	@Column(nullable = false)
+	private String city;
+	
+	@Column(nullable = false)
+	private String state;
+	
+	@Column(nullable = false)
+	private int zipcode;
+		
+	@JsonIgnore
+	private long aadharCardNumber;
+
+	public User(long usersId, String userName, String firstName, String lastName, String rank, @Email String email,
+			String password, String phoneNumber, String role, Boolean emailVerified, String city, String state,
+			int zipcode, long aadharCardNumber) {
+		super();
+		this.usersId = usersId;
+		this.userName = userName;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.rank = rank;
+		this.email = email;
+		this.password = password;
+		this.phoneNumber = phoneNumber;
+		this.role = role;
+		this.emailVerified = emailVerified;
+		this.city = city;
+		this.state = state;
+		this.zipcode = zipcode;
+		this.aadharCardNumber = aadharCardNumber;
+	}
+
+	public User(Long id, String firstName2, String lastName2, String userName2, String rank2, String email2,
+			String password2, String phoneNumber2, String role2, Boolean emailVerified2, String state2, String city2,
+			String state3, String zipcode2, String aadharCardNumber2, String role3) {
+		// TODO Auto-generated constructor stub
+	}
 
 	public long getUsersId() {
 		return usersId;
@@ -62,12 +107,44 @@ public class User {
 		this.userName = userName;
 	}
 
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getRank() {
+		return rank;
+	}
+
+	public void setRank(String rank) {
+		this.rank = rank;
+	}
+
 	public String getEmail() {
 		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getPhoneNumber() {
@@ -86,22 +163,6 @@ public class User {
 		this.role = role;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-
 	public Boolean getEmailVerified() {
 		return emailVerified;
 	}
@@ -110,30 +171,41 @@ public class User {
 		this.emailVerified = emailVerified;
 	}
 
-	@Override
-	public String toString() {
-		return "User [usersId=" + usersId + ", userName=" + userName + ", email=" + email + ", phoneNumber="
-				+ phoneNumber + ", role=" + role + ", password=" + password + ", imageUrl=" + imageUrl
-				+ ", emailVerified=" + emailVerified + "]";
+	public String getCity() {
+		return city;
 	}
 
-	public User(long usersId, String userName, @Email String email, String phoneNumber, String role, String password,
-			String imageUrl, Boolean emailVerified) {
-		super();
-		this.usersId = usersId;
-		this.userName = userName;
-		this.email = email;
-		this.phoneNumber = phoneNumber;
-		this.role = role;
-		this.password = password;
-		this.imageUrl = imageUrl;
-		this.emailVerified = emailVerified;
+	public void setCity(String city) {
+		this.city = city;
 	}
 
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
+	public String getState() {
+		return state;
 	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public int getZipcode() {
+		return zipcode;
+	}
+
+	public void setZipcode(int zipcode) {
+		this.zipcode = zipcode;
+	}
+
+	public long getAadharCardNumber() {
+		return aadharCardNumber;
+	}
+
+	public void setAadharCardNumber(long aadharCardNumber) {
+		this.aadharCardNumber = aadharCardNumber;
+	}
+	
+	
+	
+
 	
 	
 }
