@@ -66,8 +66,11 @@ public class Criminal {
 	@Column(nullable = false)
 	private String description;
 	
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private String criminalImageUrl;
+	
+	@Column(nullable = false)
+	private String gender;
 	
 	private String imagePath;
 
@@ -77,6 +80,14 @@ public class Criminal {
 
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	public long getCriminalId() {

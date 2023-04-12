@@ -24,7 +24,6 @@ public class CriminalService {
 
 	public Criminal createCriminal(Criminal criminal) {
 		// TODO Auto-generated method stub
-		
 		return criminalRepo.save(criminal);
 		
 	}
